@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "785415826920",
+    "project_id": "obesity2-ab036",
+    "storage_bucket": "obesity2-ab036.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785415826920:android:7c965b956c54d91a5b485d",
+        "android_client_info": {
+          "package_name": "uk.ac.tees.aad.obesity2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785415826920-oa6fktnflq1pc0bdksu8rdt7ghlpsk23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuDBQWAEH2-rBEJwNwAmNTBDImAn_jxT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785415826920-oa6fktnflq1pc0bdksu8rdt7ghlpsk23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

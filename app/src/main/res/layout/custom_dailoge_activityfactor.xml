@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#00BCD4"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/mybutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:text="submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearQuestion4" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/circularImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearQuestion1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="3"
+        android:background="@drawable/custom_input"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/circularImageView">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="I do not exercise at all "/>
+
+        <CheckBox
+            android:id="@+id/firstcheck"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:onClick="oncheckboxClicked"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearQuestion2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="3"
+        android:background="@drawable/custom_input"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/linearQuestion1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="I do very little exercise at all once in a month"/>
+
+        <CheckBox
+            android:id="@+id/secondcheck"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:onClick="oncheckboxClicked"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearQuestion3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="3"
+        android:background="@drawable/custom_input"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/linearQuestion2">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="I do exercise twice or once in a week"/>
+
+        <CheckBox
+            android:id="@+id/Thirdcheck"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:onClick="oncheckboxClicked"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearQuestion4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="3"
+        android:background="@drawable/custom_input"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/linearQuestion3">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="I am very active, I do exercise and activities alot"/>
+
+        <CheckBox
+            android:id="@+id/Fourthcheck"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:onClick="oncheckboxClicked"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
