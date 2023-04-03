@@ -26,13 +26,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
+import uk.ac.tees.aad.obesity2.Model.TweetModel;
 import uk.ac.tees.aad.obesity2.Model.user;
+import uk.ac.tees.aad.obesity2.Adapter.twiterAdapter;
 
 public class mainact extends AppCompatActivity {
 
-    FirebaseDatabase database;
+   /* FirebaseDatabase database;
     uk.ac.tees.aad.obesity2.Model.user user;
     Button button;
     String Gender;
@@ -42,16 +45,50 @@ public class mainact extends AppCompatActivity {
     CheckBox q1,q2,q3,q4;
     public static float activityFactor=1;
     SharedPreferences sharedPreferences;
-    Button bmrbutton;
+    Button bmrbutton; */
 
     RecyclerView recyclerView;
+    ArrayList<TweetModel> models;
+    twiterAdapter adapter;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainact);
         recyclerView = findViewById(R.id.rec);
+
+        models = new ArrayList<>();
+        database = FirebaseDatabase.getInstance();
+        database.getReference().child("tweet").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                models.clear();
+                for(DataSnapshot snapshot1: snapshot.getChildren())
+                {
+                      TweetModel model = snapshot1.getValue(TweetModel.class);
+                      models.add(model);
+
+
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+        adapter = new twiterAdapter(models,mainact.this);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
 
 
 
@@ -67,6 +104,8 @@ public class mainact extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.signout:
+                Intent intent = new Intent(mainact.this,share_thought.class);
+                startActivity(intent);
                Toast.makeText(mainact.this,"signout",Toast.LENGTH_LONG).show();
             case R.id.bmr_track:
                 Toast.makeText(mainact.this,"bmr",Toast.LENGTH_LONG).show();

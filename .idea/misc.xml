@@ -4,14 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/custom_input.xml" value="0.1" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_back_bottoms.xml" value="0.1" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_top_drawable.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_bmitracker.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_fgpassword.xml" value="0.10144927536231885" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_login.xml" value="0.10144927536231885" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_mainact.xml" value="0.22" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_registration.xml" value="0.22" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_share_thought.xml" value="0.165625" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/custom_dailoge_activityfactor.xml" value="0.22" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/single_row_share.xml" value="0.4466666666666667" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/menu/bottommenu.xml" value="0.1796875" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/menu/mymenu.xml" value="0.22" />
       </map>
     </option>

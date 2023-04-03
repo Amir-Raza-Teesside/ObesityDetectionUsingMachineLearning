@@ -5,9 +5,9 @@ public class TweetModel {
     private String authorname;
     private String email;
     private String tweet;
-    private int likeCounter;
+    private String likeCounter;
 
-    public TweetModel(String authorname, String email, String tweet, int likeCounter) {
+    public TweetModel(String authorname, String email, String tweet, String likeCounter) {
         this.authorname = authorname;
         this.email = email;
         this.tweet = tweet;
@@ -41,11 +41,11 @@ public class TweetModel {
         this.tweet = tweet;
     }
 
-    public int getLikeCounter() {
+    public String getLikeCounter() {
         return likeCounter;
     }
 
-    public void setLikeCounter(int likeCounter) {
+    public void setLikeCounter(String likeCounter) {
         this.likeCounter = likeCounter;
     }
 }

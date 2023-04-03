@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Obesity2">
         <activity
+            android:name=".share_thought"
+            android:exported="true" />
+        <activity
             android:name=".BMITracker"
             android:exported="true" />
         <activity
