@@ -59,6 +59,8 @@ public class share_thought extends AppCompatActivity {
 
 
 
+
+
             }
         });
 

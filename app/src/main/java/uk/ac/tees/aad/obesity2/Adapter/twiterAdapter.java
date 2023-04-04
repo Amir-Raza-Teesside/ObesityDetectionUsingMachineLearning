@@ -62,25 +62,7 @@ public class twiterAdapter extends RecyclerView.Adapter<twiterAdapter.viewholder
 
 
 
-       holder.button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
 
-               Toast.makeText(context,String
-                       .valueOf(position),Toast.LENGTH_LONG).show();
-               holder.likeCounter.setText("2");
-
-              DatabaseReference reference = FirebaseDatabase.getInstance().getReference("tweet").push();
-              TweetModel model1 = new TweetModel("Name","email","tweet","10");
-
-              reference.setValue(model1).addOnCompleteListener(new OnCompleteListener<Void>() {
-                  @Override
-                  public void onComplete(@NonNull Task<Void> task) {
-                      Toast.makeText(context,"done",Toast.LENGTH_LONG).show();
-                  }
-              });
-           }
-       });
 
 
 

@@ -16,7 +16,7 @@
         <menu>
 
             <item
-                android:id="@+id/bmr_track"
+                android:id="@+id/activitydialog"
 
                 android:title="BMR Tracker"
                 app:showAsAction="ifRoom" />
