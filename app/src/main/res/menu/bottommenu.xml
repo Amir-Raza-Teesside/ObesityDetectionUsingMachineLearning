@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <item
-        android:id="@+id/Chat"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Chat" />
+        android:id="@+id/bmis"
+        android:title="BMI" />
     <item
         android:id="@+id/Status"
-        android:icon="@drawable/ic_launcher_foreground"
         android:title="Status" />
     <item
         android:id="@+id/calls"
-        android:icon="@drawable/ic_launcher_foreground"
         android:title="Tweets" />
 
 </menu>

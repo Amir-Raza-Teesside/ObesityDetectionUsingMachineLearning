@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -52,6 +53,7 @@ public class mainact extends AppCompatActivity {
     ArrayList<TweetModel> models;
     twiterAdapter adapter;
     FirebaseUser currentuser;
+    BottomNavigationView bottomNavigationView;
 
 
 
@@ -72,6 +74,22 @@ public class mainact extends AppCompatActivity {
         q3 = dialog.findViewById(R.id.Thirdcheck);
         q4 = dialog.findViewById(R.id.Fourthcheck);
         submitButton = dialog.findViewById(R.id.mybutton);
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.bmis:
+                        Toast.makeText(mainact.this, "clicked", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(mainact.this, BMITracker.class);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
 
         String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -129,7 +147,11 @@ public class mainact extends AppCompatActivity {
                 myEdit.putFloat("height",user1.getHeight());
                 myEdit.putInt("age",user1.getAge());
                 double bmr = BMRCalculate(user1);
+                double pound = KilogramToPound(user1);
+                double Inch = CentimeterToInch(user1);
                 myEdit.putLong("bmr", (long) bmr);
+                myEdit.putLong("pound", (long) pound);
+                myEdit.putLong("inches", (long) Inch);
 
                 myEdit.commit();
 
@@ -197,6 +219,19 @@ public class mainact extends AppCompatActivity {
         return  bmr;
 
 
+    }
+
+    public double KilogramToPound(user user)
+    {
+
+
+        return  user.getWeight() * 0.4535;
+    }
+
+    public double CentimeterToInch(user user)
+    {
+
+        return  user.getHeight()/2.54;
     }
 
   public void oncheckboxClicked(View view)
