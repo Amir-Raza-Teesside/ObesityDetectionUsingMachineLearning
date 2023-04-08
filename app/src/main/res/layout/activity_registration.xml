@@ -9,17 +9,57 @@
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/custom_input"
+        android:orientation="horizontal"
+        android:weightSum="2.2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightlinear">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1.1"
+
+
+            android:drawableRight="@drawable/ic_baseline_man_24"
+            android:text="Male"
+            android:textColor="#3F51B5" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1.1"
+
+
+            android:drawableRight="@drawable/ic_baseline_woman_24"
+            android:text="Female"
+            android:textColor="#3F51B5" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:id="@+id/heightlinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="12dp"
         android:background="@drawable/custom_input"
+        android:orientation="horizontal"
         android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightlinear">
 
         <TextView
@@ -49,7 +89,7 @@
             app:tickColorInactive="#676767"
 
 
-             />
+            />
 
         <TextView
             android:id="@+id/height"
@@ -68,11 +108,11 @@
         android:id="@+id/weightlinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="12dp"
         android:background="@drawable/custom_input"
+        android:orientation="horizontal"
         android:weightSum="3"
         app:layout_constraintTop_toBottomOf="@+id/agelinear">
 
@@ -100,8 +140,7 @@
             app:thumbColor="#0E0E0E"
             app:tickColor="#3F51B5"
             app:tickColorActive="#232323"
-            app:tickColorInactive="#676767"
-             />
+            app:tickColorInactive="#676767" />
 
         <TextView
             android:id="@+id/weight"
@@ -153,8 +192,7 @@
             app:thumbColor="#0E0E0E"
             app:tickColor="#3F51B5"
             app:tickColorActive="#232323"
-            app:tickColorInactive="#676767"
-             />
+            app:tickColorInactive="#676767" />
 
         <TextView
             android:id="@+id/age"
@@ -179,7 +217,7 @@
         android:textColor="#fff"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -250,16 +288,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
     <View
-        android:id="@+id/view2"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_back_bottoms"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
@@ -278,6 +306,7 @@
         android:layout_marginTop="65dp"
 
         android:paddingBottom="20dp"
+        android:src="@drawable/logos"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintHorizontal_bias="0.213"
@@ -291,8 +320,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="4dp"
-        android:textColor="#3F51B5"
         android:text="Persoanlized Voice App"
+        android:textColor="#3F51B5"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
