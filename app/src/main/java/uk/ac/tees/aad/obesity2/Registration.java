@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ public class Registration extends AppCompatActivity {
     Slider AgeSlider,WeightSlider,HeightSlider;
     FirebaseAuth auth;
     Button register;
+    CheckBox Male,Female;
+    String gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,9 @@ public class Registration extends AppCompatActivity {
 
         register = findViewById(R.id.button2);
         auth = FirebaseAuth.getInstance();
+
+        Male = findViewById(R.id.male);
+        Female = findViewById(R.id.female);
 
 
         AgeSlider = findViewById(R.id.ageslider);
@@ -142,7 +148,7 @@ public class Registration extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                    // Toast.makeText(Registration.this,"Successing",Toast.LENGTH_LONG).show();
-                   user user = new user(dummyName,dummyEmail,Integer.parseInt(dummyAge),Float.parseFloat(dummyWeight),Float.parseFloat(dummyHeight),"Male");
+                   user user = new user(dummyName,dummyEmail,Integer.parseInt(dummyAge),Float.parseFloat(dummyWeight),Float.parseFloat(dummyHeight),gender);
 
                     FirebaseDatabase.getInstance().getReference("user")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -164,5 +170,35 @@ public class Registration extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void GenderSelection(View view)
+    {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.male:
+                if(checked)
+                {
+                    Female.setChecked(false);
+                    gender="Male";
+                }
+                else {
+
+                }
+                break;
+
+            case R.id.female:
+                if(checked)
+                {
+                    Male.setChecked(false);
+                    gender="Female";
+                }
+                else {
+
+                }
+                break;
+
+        }
     }
 }
