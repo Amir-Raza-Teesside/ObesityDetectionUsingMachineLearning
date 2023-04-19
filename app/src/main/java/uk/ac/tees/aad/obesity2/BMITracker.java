@@ -7,10 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ekn.gruzer.gaugelibrary.HalfGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
@@ -50,7 +48,7 @@ public class BMITracker extends AppCompatActivity {
             }
         });
 
-        guage = findViewById(R.id.guage);
+        guage = findViewById(R.id.guagesec);
         Yourbmi = findViewById(R.id.yourbmi);
         SharedPreferences sh = getSharedPreferences("Prefs",MODE_PRIVATE);
 
@@ -68,7 +66,7 @@ public class BMITracker extends AppCompatActivity {
         Range range = new Range();
         range.setFrom(10);
         range.setTo(bmi);
-        range.setColor(Color.parseColor("#ffffff"));
+        range.setColor(Color.parseColor("#00ff00"));
         String ScaleText = YourScale(bmi);
         Yourbmi.setText(ScaleText);
 
@@ -77,7 +75,7 @@ public class BMITracker extends AppCompatActivity {
         Range range2 = new Range();
         range2.setFrom(bmi);
         range2.setTo(45);
-        range2.setColor(Color.parseColor("#00ff00"));
+        range2.setColor(Color.parseColor("#ffffff"));
 
 
 
