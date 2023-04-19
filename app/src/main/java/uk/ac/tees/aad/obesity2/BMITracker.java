@@ -1,16 +1,20 @@
 package uk.ac.tees.aad.obesity2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ekn.gruzer.gaugelibrary.HalfGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BMITracker extends AppCompatActivity {
 
@@ -18,10 +22,33 @@ public class BMITracker extends AppCompatActivity {
     HalfGauge guage;
     long bmi;
     TextView Yourbmi;
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmitracker);
+
+        bottomNavigationView = findViewById(R.id.bmibottomnavigation);
+        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+
+                switch (item.getItemId())
+                {
+                    case R.id.bbb:
+
+                        Intent intent = new Intent(BMITracker.this, BMITracker.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.tedd:
+
+                        Intent tedd = new Intent(BMITracker.this, TEDD.class);
+                        startActivity(tedd);
+                        break;
+                }
+
+            }
+        });
 
         guage = findViewById(R.id.guage);
         Yourbmi = findViewById(R.id.yourbmi);
@@ -33,13 +60,14 @@ public class BMITracker extends AppCompatActivity {
 
 
 
+
         bmi = (long) BMI(inch,pound);
         guage.setMaxValue(45);
         guage.setMinValue(10);
         guage.setValue(bmi);
         Range range = new Range();
         range.setFrom(10);
-        range.setTo(18.9);
+        range.setTo(bmi);
         range.setColor(Color.parseColor("#ffffff"));
         String ScaleText = YourScale(bmi);
         Yourbmi.setText(ScaleText);
@@ -47,19 +75,16 @@ public class BMITracker extends AppCompatActivity {
 
 
         Range range2 = new Range();
-        range2.setFrom(19);
-        range2.setTo(24.9);
+        range2.setFrom(bmi);
+        range2.setTo(45);
         range2.setColor(Color.parseColor("#00ff00"));
 
-        Range range3 = new Range();
-        range3.setFrom(25);
-        range3.setTo(45);
-        range3.setColor(Color.parseColor("#ff0000"));
+
 
         guage.addRange(range);
 
         guage.addRange(range2);
-        guage.addRange(range3);
+
 
 
 

@@ -22,10 +22,12 @@ public class share_thought extends AppCompatActivity {
     Button button;
     FirebaseDatabase database;
     FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share_thought);
+
 
 
         auth = FirebaseAuth.getInstance();

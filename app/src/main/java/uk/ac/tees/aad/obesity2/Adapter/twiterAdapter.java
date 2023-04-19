@@ -31,6 +31,9 @@ public class twiterAdapter extends RecyclerView.Adapter<twiterAdapter.viewholder
     private ArrayList<TweetModel> model;
     private Context context;
 
+    DatabaseReference likeref;
+
+
     public twiterAdapter(ArrayList<TweetModel> model, Context context) {
         this.model = model;
         this.context = context;
@@ -58,6 +61,20 @@ public class twiterAdapter extends RecyclerView.Adapter<twiterAdapter.viewholder
         {
             Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         }
+
+
+
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              String key =  likeref.getDatabase().getReference().child("tweet").getKey();
+                Toast.makeText(context.getApplicationContext(), key, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
 
 
