@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -48,12 +49,14 @@ public class mainact extends AppCompatActivity {
     public static float activityFactor=1;
     SharedPreferences sharedPreferences;
     Button bmrbutton;
+    FloatingActionButton floatingActionButton;
 
     RecyclerView recyclerView;
     ArrayList<TweetModel> models;
     twiterAdapter adapter;
     FirebaseUser currentuser;
     BottomNavigationView bottomNavigationView;
+    Dialog waterreminder;
 
 
 
@@ -63,9 +66,21 @@ public class mainact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainact);
         recyclerView = findViewById(R.id.rec);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                waterreminder.show();
+            }
+        });
 
         currentuser = FirebaseAuth.getInstance().getCurrentUser();
         String UserId = currentuser.getUid();
+
+        waterreminder = new Dialog(this);
+        waterreminder.setContentView(R.layout.custom_dailoge_waterreminder);
+
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dailoge_activityfactor);
 
