@@ -208,8 +208,10 @@ public class mainact extends AppCompatActivity {
                 startActivity(intent);
                Toast.makeText(mainact.this,"signout",Toast.LENGTH_LONG).show();
             case R.id.activitydialog:
-                dialog.show();
-                Toast.makeText(mainact.this,"bmr",Toast.LENGTH_LONG).show();
+                //dialog.show();
+                //Toast.makeText(mainact.this,"bmr",Toast.LENGTH_LONG).show();
+                Intent myintent = new Intent(mainact.this,obesitydetection.class);
+                startActivity(myintent);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23">
 
         <Spinner
-            android:id="@+id/CALC"
+            android:id="@+id/HighCaloric"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -242,6 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:gravity="center"
         android:text="Our machine learning model will predict the Obesity Level"
         android:textColor="#FAFAFA"
         android:textSize="16sp"
