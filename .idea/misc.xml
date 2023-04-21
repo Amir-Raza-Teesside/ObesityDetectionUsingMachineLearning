@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable-v24/spinner_layout.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/custom_input.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_back_bottoms.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_top_drawable.xml" value="0.1" />
@@ -11,7 +12,8 @@
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_mainact.xml" value="0.2701644479248238" />
-        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_obesitydetection.xml" value="0.16077898550724637" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_obesitydetection.xml" value="0.22" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_obesitydetectiontwo.xml" value="0.3333333333333333" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_registration.xml" value="0.22" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_share_thought.xml" value="0.165625" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_stepcounter.xml" value="0.16077898550724637" />

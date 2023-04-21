@@ -1,3 +1,42 @@
 <resources>
+
     <string name="app_name">Obesity2</string>
+    <string-array name="familyhistory">
+        <item>NO</item>
+        <item>YES</item>
+    </string-array>
+
+    <string-array name="FAVC">
+        <item> NO </item>
+        <item> YES</item>
+    </string-array>
+
+    <string-array name="smoke">
+        <item> NO </item>
+        <item> YES</item>
+    </string-array>
+
+    <string-array name="CAEC">
+        <item> Sometime </item>
+        <item> Frequently</item>
+        <item> Always </item>
+        <item> No</item>
+    </string-array>
+
+    <string-array name="CALC">
+        <item> Sometime </item>
+        <item> Frequently</item>
+        <item> Always </item>
+        <item> No</item>
+    </string-array>
+
+    <string-array name="Transport">
+        <item> Public Transport </item>
+        <item> Walking</item>
+        <item> AutoMobile </item>
+        <item> Motor Bike</item>
+        <item> Bike</item>
+    </string-array>
+
+
 </resources>

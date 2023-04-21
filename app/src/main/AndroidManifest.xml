@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Obesity2">
         <activity
+            android:name=".obesitydetectiontwo"
+            android:exported="true" />
+        <activity
             android:name=".obesitydetection"
             android:exported="true" />
         <activity
