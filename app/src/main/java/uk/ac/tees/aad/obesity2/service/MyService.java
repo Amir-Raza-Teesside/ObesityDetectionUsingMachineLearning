@@ -92,31 +92,7 @@ public class MyService extends Service {
 
 
 
-    private void CreateNotification()
-    {
 
-        Intent notificationIntent = new Intent(this,MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,notificationIntent,0);
-
-
-
-
-        Notification notification = new NotificationCompat.Builder(this, channelId)
-                .setContentTitle("Ss")
-                .setContentText("mytext")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-
-                .addAction(R.drawable.ic_launcher_foreground,getString(R.string.app_name),pendingIntent).build();
-
-
-        startForeground(1,notification);
-
-        NotificationChannel notificationChannel = new NotificationChannel(channelId,"Alarm", NotificationManager.IMPORTANCE_DEFAULT);
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(notificationChannel);
-
-
-    }
 
     @Override
     public void onDestroy() {

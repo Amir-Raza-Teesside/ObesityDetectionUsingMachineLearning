@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,8 +40,11 @@ public class obesitydetectiontwo extends AppCompatActivity {
     String Favcvalue;
     public static String url = "https://obesitydetection.herokuapp.com/obese";
     EditText etwter;
+    TextView bmrfinal,bmifinal,predinal;
 
     Button predict;
+    Long bmr;
+    double bmi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +52,25 @@ public class obesitydetectiontwo extends AppCompatActivity {
         getSupportActionBar().hide();
 
         etwter = findViewById(R.id.water);
+        bmrfinal = findViewById(R.id.bmrfinal);
+        bmifinal = findViewById(R.id.Bmifinal);
+
+        predinal = findViewById(R.id.predictionfinal);
+
+
+
 
         SharedPreferences sh = getSharedPreferences("Prefs",MODE_PRIVATE);
         String gender = sh.getString("gender","");
         int age = sh.getInt("age",0);
         float height = sh.getFloat("height",0f);
         float weight = sh.getFloat("weight",0f);
+        long inches =  sh.getLong("inches",0);
+        long pound =  sh.getLong("pound",0);
+         bmr = sh.getLong("bmr",0);
+         bmi = BMI(inches, (long) pound);
+
+
         predict = findViewById(R.id.predict);
         predict.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +87,7 @@ public class obesitydetectiontwo extends AppCompatActivity {
 
                 Predict(GenderConveror(gender), String.valueOf(age),InchestoMeter(height), String.valueOf(weight)
                 ,familyhistory, Favcvalue,caec,smoke,etwter.getText().toString(),calc,transport);
+                etwter.setText("");
             }
         });
 
@@ -132,7 +150,45 @@ public class obesitydetectiontwo extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                Toast.makeText(obesitydetectiontwo.this,response.toString(),Toast.LENGTH_LONG).show();
+
+                if(response.contains("0"))
+                {
+
+                    predinal.setText("insufficent weight");
+                }
+                if(response.contains("1"))
+                {
+
+                    predinal.setText("Ideal weight");
+                }
+                if(response.contains("2"))
+                {
+                    predinal.setText("Obesity type I");
+
+                }
+                if(response.contains("3"))
+                {
+
+                    predinal.setText("Obesity type II");
+                }
+                if(response.contains("4"))
+                {
+
+                    predinal.setText("Obesity type IIi");
+                }
+                if(response.contains("5"))
+                {
+
+                    predinal.setText("Overweiht Level i");
+                }
+                if(response.contains("6"))
+                {
+
+                    predinal.setText("Overweiht Level ii");
+                }
+                bmrfinal.setText(String.valueOf(bmr));
+                bmifinal.setText(String.valueOf(bmi));
+
 
             }
         }, new Response.ErrorListener() {
@@ -191,5 +247,10 @@ public class obesitydetectiontwo extends AppCompatActivity {
     public String InchestoMeter(float hieght)
     {
         return  hieght/100 +"";
+    }
+    private double BMI(long inch, long pound)
+    {
+
+        return  (703 *  (pound)/(inch*inch));
     }
 }

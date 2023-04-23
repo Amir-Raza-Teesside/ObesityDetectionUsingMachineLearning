@@ -1,9 +1,11 @@
 package uk.ac.tees.aad.obesity2;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,11 +14,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,10 +39,12 @@ import java.util.Locale;
 import uk.ac.tees.aad.obesity2.Model.TweetModel;
 import uk.ac.tees.aad.obesity2.Model.user;
 import uk.ac.tees.aad.obesity2.Adapter.twiterAdapter;
+import uk.ac.tees.aad.obesity2.service.MyService;
 
 public class mainact extends AppCompatActivity {
 
     FirebaseDatabase database;
+    TimePicker timePicker;
     uk.ac.tees.aad.obesity2.Model.user user;
     Button submitButton;
     String Gender;
@@ -58,6 +64,7 @@ public class mainact extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Dialog waterreminder;
 
+    Button savebutton;
 
 
 
@@ -68,6 +75,11 @@ public class mainact extends AppCompatActivity {
         recyclerView = findViewById(R.id.rec);
         floatingActionButton = findViewById(R.id.floatingActionButton);
 
+
+
+
+
+
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,11 +87,39 @@ public class mainact extends AppCompatActivity {
             }
         });
 
+
         currentuser = FirebaseAuth.getInstance().getCurrentUser();
         String UserId = currentuser.getUid();
 
         waterreminder = new Dialog(this);
         waterreminder.setContentView(R.layout.custom_dailoge_waterreminder);
+        savebutton = waterreminder.findViewById(R.id.save);
+        timePicker = waterreminder.findViewById(R.id.timepicker);
+
+        ActivityCompat.requestPermissions(this, new String[]
+                {Manifest.permission.FOREGROUND_SERVICE}, PackageManager.PERMISSION_GRANTED);
+
+        Intent intent = new Intent(mainact.this, MyService.class);
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+                savebutton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ServiceExecuter(intent);
+                        waterreminder.dismiss();
+                        Toast.makeText(mainact.this,"Reminder Saved",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            }
+
+        });
+
+
+
+
 
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.custom_dailoge_activityfactor);
@@ -319,6 +359,24 @@ public class mainact extends AppCompatActivity {
 
     }
 
+    private void ServiceExecuter(Intent intent)
+    {
+        // startService(intent);
+        int hour = timePicker.getCurrentHour();
+        int minute = timePicker.getCurrentMinute();
+
+        intent.putExtra("HOURS", hour);
+        intent.putExtra("MINUTES", minute);
+        startService(intent);
+
+
+    }
+    private  void StopService(Intent intent)
+    {
+
+        stopService(intent);
+
+    }
 
 
    }
