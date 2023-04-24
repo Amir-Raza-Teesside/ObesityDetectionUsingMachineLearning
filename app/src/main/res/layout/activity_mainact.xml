@@ -24,13 +24,13 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/rec"
+        app:layout_constraintBottom_toBottomOf="@+id/recs"
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="#3F51B5"
         app:srcCompat="@drawable/ic_baseline_access_time_filled_24" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec"
+        android:id="@+id/recs"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"

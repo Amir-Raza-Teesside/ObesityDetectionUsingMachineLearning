@@ -6,10 +6,11 @@
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable-v24/spinner_layout.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/custom_input.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_back_bottoms.xml" value="0.1" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_launcher_chicken_background.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/drawable/ic_top_drawable.xml" value="0.1" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_bmitracker.xml" value="0.3333333333333333" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_fgpassword.xml" value="0.10144927536231885" />
-        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_foodrecomender.xml" value="0.15670289855072464" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_foodrecomender.xml" value="0.5" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_mainact.xml" value="0.2701644479248238" />
@@ -20,12 +21,16 @@
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_stepcounter.xml" value="0.16077898550724637" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/activity_tedd.xml" value="0.3333333333333333" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/custom_dailoge_activityfactor.xml" value="0.22" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/custom_dailoge_foodselection.xml" value="0.14673913043478262" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/custom_dailoge_waterreminder.xml" value="0.22" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/foodrecommenderlayout.xml" value="0.4466666666666667" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/layout/single_row_share.xml" value="0.4466666666666667" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/menu/bmi_menu.xml" value="0.1796875" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/menu/bmitopmenu.xml" value="0.1796875" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/menu/bottommenu.xml" value="0.1796875" />
         <entry key="..\:/Projects/Obesity2/app/src/main/res/menu/mymenu.xml" value="0.22" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_chicken.xml" value="0.1" />
+        <entry key="..\:/Projects/Obesity2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_chicken_round.xml" value="0.1" />
       </map>
     </option>
   </component>

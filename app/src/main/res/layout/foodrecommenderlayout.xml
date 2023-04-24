@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"></LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/info12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="keto "
+                        app:layout_constraintEnd_toEndOf="@+id/info10"
+                        app:layout_constraintStart_toStartOf="@+id/info10"
+                        app:layout_constraintTop_toBottomOf="@+id/info10" />
+
+                    <TextView
+                        android:id="@+id/info7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="2dp"
+                        android:text="Low carb"
+                        app:layout_constraintStart_toEndOf="@+id/foodimage"
+                        app:layout_constraintTop_toBottomOf="@+id/info4" />
+
+                    <TextView
+                        android:id="@+id/info9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="keto "
+                        app:layout_constraintEnd_toEndOf="@+id/info11"
+                        app:layout_constraintStart_toStartOf="@+id/info11"
+                        app:layout_constraintTop_toBottomOf="@+id/info11" />
+
+                    <TextView
+                        android:id="@+id/info8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:text="sugar concious"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/info10"
+                        app:layout_constraintTop_toBottomOf="@+id/info5" />
+
+                    <TextView
+                        android:id="@+id/info11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:text="sugar concious"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/info10"
+                        app:layout_constraintTop_toBottomOf="@+id/info8" />
+
+                    <TextView
+                        android:id="@+id/info10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="2dp"
+                        android:text="Low carb"
+                        app:layout_constraintStart_toEndOf="@+id/foodimage"
+                        app:layout_constraintTop_toBottomOf="@+id/info7" />
+
+                    <TextView
+                        android:id="@+id/info3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="keto "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/info9"
+                        app:layout_constraintStart_toStartOf="@+id/info9"
+                        app:layout_constraintTop_toBottomOf="@+id/info9" />
+
+                    <TextView
+                        android:id="@+id/info5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:text="sugar concious"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/info4"
+                        app:layout_constraintTop_toBottomOf="@+id/info2" />
+
+                    <TextView
+                        android:id="@+id/info4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="2dp"
+                        android:text="Low carb"
+                        app:layout_constraintStart_toEndOf="@+id/foodimage"
+                        app:layout_constraintTop_toBottomOf="@+id/info1" />
+
+                    <TextView
+                        android:id="@+id/info6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="keto "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/info12"
+                        app:layout_constraintStart_toStartOf="@+id/info12"
+                        app:layout_constraintTop_toBottomOf="@+id/info12" />
+
+                    <TextView
+                        android:id="@+id/info2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="6dp"
+                        android:text="sugar concious"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/info1"
+                        app:layout_constraintTop_toBottomOf="@+id/foodlabel" />
+
+                    <TextView
+                        android:id="@+id/info1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Low carb"
+                        app:layout_constraintStart_toEndOf="@+id/foodimage"
+                        app:layout_constraintTop_toBottomOf="@+id/foodlabel" />
+
+                    <TextView
+                        android:id="@+id/foodlabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Chicken Katalan"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/foodimage"
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="10dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/logos" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="#424E49"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/iron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10mg"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView63"
+                        app:layout_constraintTop_toBottomOf="@+id/magnisium" />
+
+                    <TextView
+                        android:id="@+id/magnisium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10mg"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView62"
+                        app:layout_constraintTop_toBottomOf="@+id/calcium" />
+
+                    <TextView
+                        android:id="@+id/calcium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10mg"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView60"
+                        app:layout_constraintTop_toBottomOf="@+id/sodium" />
+
+                    <TextView
+                        android:id="@+id/sodium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10mg"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView58"
+                        app:layout_constraintTop_toBottomOf="@+id/cholestrol" />
+
+                    <TextView
+                        android:id="@+id/textView63"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="Fe"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/carb"
+                        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+                    <TextView
+                        android:id="@+id/textView62"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="Mg"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/carb"
+                        app:layout_constraintTop_toBottomOf="@+id/textView60" />
+
+                    <TextView
+                        android:id="@+id/textView60"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="Ca"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toEndOf="@+id/protien"
+                        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+                    <TextView
+                        android:id="@+id/textView58"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="Na"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toEndOf="@+id/protien"
+                        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+                    <TextView
+                        android:id="@+id/cholestrol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="10mg"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView55"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView55"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:text="Chol"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toEndOf="@+id/protien"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="24mg"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textView51"
+                        app:layout_constraintTop_toBottomOf="@+id/protien" />
+
+                    <TextView
+                        android:id="@+id/textView53"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:text="Carb"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/cousine"
+                        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+                    <TextView
+                        android:id="@+id/protien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="10dp"
+                        android:text="24mg"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textView49"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/carb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="24mg"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textView53"
+                        app:layout_constraintTop_toBottomOf="@+id/fat" />
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Protien"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/cousine"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView51"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:text="Fat"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/cousine"
+                        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+                    <TextView
+                        android:id="@+id/cousine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Serving 4"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/foodcalories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:text="1456"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold|italic"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cousine" />
+
+                    <TextView
+                        android:id="@+id/textView68"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kcal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/foodcalories"
+                        app:layout_constraintStart_toStartOf="@+id/foodcalories"
+                        app:layout_constraintTop_toBottomOf="@+id/foodcalories" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
