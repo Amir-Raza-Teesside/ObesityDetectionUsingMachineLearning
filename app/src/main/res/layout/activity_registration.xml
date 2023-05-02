@@ -322,7 +322,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="4dp"
-        android:text="Persoanlized Voice App"
+        android:text="Persoanlized Fit App"
         android:textColor="#3F51B5"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
