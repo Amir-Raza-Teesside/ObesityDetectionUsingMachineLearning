@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,7 @@ public class foodrecomender extends AppCompatActivity {
     RecyclerView recs;
     ArrayList<food> foodArrayList;
     foodadapter foodadapter;
+    Dialog DietFilterDailoge;
     public  static String url = "https://api.edamam.com/api/recipes/v2?type=any&q=chicken&app_id=c39a0c06&app_key=e5f6f66858d02c3d7640b05a87c5daa7&diet=high-protein";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,10 @@ public class foodrecomender extends AppCompatActivity {
         recs = findViewById(R.id.recs);
         recs.setLayoutManager(new LinearLayoutManager(this));
         recs.setAdapter(foodadapter);
+        DietFilterDailoge = new Dialog(this);
+        DietFilterDailoge.setContentView(R.layout.custom_dailoge_foodselection);
+        DietFilterDailoge.show();
+
 
 
         button = findViewById(R.id.btn);
