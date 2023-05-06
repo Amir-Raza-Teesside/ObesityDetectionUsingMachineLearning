@@ -6,7 +6,18 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <Button
+        android:id="@+id/recipeSearchbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -22,7 +33,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox20"
+                android:id="@+id/balanced"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -33,7 +44,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <CheckBox
-                android:id="@+id/checkBox19"
+                android:id="@+id/HighProtien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -42,7 +53,7 @@
                 android:text="High Protien" />
 
             <CheckBox
-                android:id="@+id/checkBox18"
+                android:id="@+id/HighFiber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -57,31 +68,31 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox17"
+                android:id="@+id/LowFat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:padding="4dp"
-                android:text="Low Fiber" />
+                android:text="Low Fat" />
 
             <CheckBox
-                android:id="@+id/checkBox16"
+                android:id="@+id/LowCarb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:padding="4dp"
-                android:text="Suger Free" />
+                android:text="Low Carb" />
 
             <CheckBox
-                android:id="@+id/checkBox15"
+                android:id="@+id/LowSodium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:padding="4dp"
-                android:text="Mixed" />
+                android:text="Low Soidum" />
         </LinearLayout>
     </LinearLayout>
 

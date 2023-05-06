@@ -1,5 +1,6 @@
 package uk.ac.tees.aad.obesity2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,23 +39,29 @@ public class foodrecomender extends AppCompatActivity {
     ArrayList<food> foodArrayList;
     foodadapter foodadapter;
     Dialog DietFilterDailoge;
-    public  static String url = "https://api.edamam.com/api/recipes/v2?type=any&q=chicken&app_id=c39a0c06&app_key=e5f6f66858d02c3d7640b05a87c5daa7&diet=high-protein";
+    CheckBox HighProtien, Balanced, HighFiber, LowCarb,LowFat,LowSodium;
+    static String DietLabel="high-protein";
+    public  static String url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foodrecomender);
+
+        url= "https://api.edamam.com/api/recipes/v2?type=any&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb&diet="+DietLabel;
+
+     //   url = "https://api.edamam.com/api/recipes/v2?&&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb";
 
         foodArrayList = new ArrayList<>();
         foodadapter = new foodadapter(foodArrayList,foodrecomender.this);
         recs = findViewById(R.id.recs);
         recs.setLayoutManager(new LinearLayoutManager(this));
         recs.setAdapter(foodadapter);
-        DietFilterDailoge = new Dialog(this);
-        DietFilterDailoge.setContentView(R.layout.custom_dailoge_foodselection);
-        DietFilterDailoge.show();
 
 
 
+
+      //  foodArrayList.add(new food("s","s","Ss","S","S","S","S","S","s","s","s","s","s","S","S","S","S","S","S","s","S","S","S"));
         button = findViewById(R.id.btn);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -65,11 +73,17 @@ public class foodrecomender extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
 
                         Toast.makeText(foodrecomender.this, "done", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(foodrecomender.this, response.toString(), Toast.LENGTH_SHORT).show();
+
                         try {
 
 
+                            Toast.makeText(foodrecomender.this, "trying", Toast.LENGTH_SHORT).show();
+
                             JSONArray array = response.getJSONArray("hits");
                            // textView.setText(array.length()+"");
+
+                           // button.setText(response.length() +"///" + array.length());
                             for(int i =0; i< array.length();i++)
                             {
                                 JSONObject objects = array.getJSONObject(i);
@@ -99,29 +113,29 @@ public class foodrecomender extends AppCompatActivity {
                                JSONObject FE = totalNutrients.getJSONObject("FE");
 
                                String cholestrol = Chloe.getString("quantity");
-                               String cholestrolformat = cholestrol.substring(0,4)+" mg";
+                               String cholestrolformat = cholestrol.substring(0,2)+" mg";
 
                                 String sodium = Na.getString("quantity");
-                                String sodiumFormat = sodium.substring(0,4)+ " mg";
+                                String sodiumFormat = sodium.substring(0,2)+ " mg";
 
                                 String calcium =  CA.getString("quantity");
-                                String calciumformat = calcium.substring(0,4)+ " mg";
+                                String calciumformat = calcium.substring(0,2)+ " mg";
 
                                 String magnisium =  MG.getString("quantity");
-                                String magnisumformat = magnisium.substring(0,4)+ " mg";
+                                String magnisumformat = magnisium.substring(0,2)+ " mg";
 
                                 String Iron = FE.getString("quantity");
-                                String IronFormat = Iron.substring(0,4) + " mg";
+                                String IronFormat = Iron.substring(0,2) + " mg";
 
 
 
 
                                 String fat = kcal.getString("quantity");
-                                String fatformat = fat.substring(0,4)+" g";
+                                String fatformat = fat.substring(0,2)+" g";
                                 String carbs = carb.getString("quantity");
-                                String carbsformat = carbs.substring(0,4)+" g";
+                                String carbsformat = carbs.substring(0,2)+" g";
                                 String Protien = Procnt.getString("quantity");
-                                String protienformat = Protien.substring(0,4)+" g";
+                                String protienformat = Protien.substring(0,2)+" g";
 
                                // button.setText(kcal.getString("label"));
 
@@ -145,11 +159,12 @@ public class foodrecomender extends AppCompatActivity {
                                 foodArrayList.add(new food(imagesource,foodlabel,foodcalories.substring(0,4),info1,info2,info3,info4,info5,info6,info7,info8,info9,info10,info11,info12,cousine,protienformat,fatformat,carbsformat,cholestrolformat,calciumformat,IronFormat,magnisumformat,sodiumFormat));
 
                                 foodadapter.notifyDataSetChanged();
+
                             }
 
 
 
-                           // JSONObject recipedetail = objects.getJSONObject("recipe");
+
 
 
 
@@ -164,6 +179,7 @@ public class foodrecomender extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Toast.makeText(foodrecomender.this,e.getMessage(),Toast.LENGTH_LONG).show();
                         }
 
 
@@ -184,7 +200,133 @@ public class foodrecomender extends AppCompatActivity {
             }
         });
 
+        DietFilterDailoge = new Dialog(this);
+        DietFilterDailoge.setContentView(R.layout.custom_dailoge_foodselection);
+        DietFilterDailoge.show();
+        HighFiber = DietFilterDailoge.findViewById(R.id.HighFiber);
+        HighProtien = DietFilterDailoge.findViewById(R.id.HighProtien);
+        Balanced = DietFilterDailoge.findViewById(R.id.balanced);
+        LowCarb = DietFilterDailoge.findViewById(R.id.LowCarb);
+        LowFat = DietFilterDailoge.findViewById(R.id.LowFat);
+        LowSodium = DietFilterDailoge.findViewById(R.id.LowSodium);
+
+    }
 
 
+    public void ondietFilter(View view)
+    {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId())
+        {
+
+            case R.id.HighProtien:
+                if(checked)
+                {
+                  HighProtien.setChecked(true);
+                  Balanced.setChecked(false);
+                  HighFiber.setChecked(false);
+                  LowCarb.setChecked(false);
+                  LowSodium.setChecked(false);
+                  LowFat.setChecked(false);
+                 DietLabel = "high-protein";
+                //    Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.balanced:
+                if(checked)
+                {
+                    HighProtien.setChecked(false);
+                    Balanced.setChecked(true);
+                    HighFiber.setChecked(false);
+                    LowCarb.setChecked(false);
+                    LowSodium.setChecked(false);
+                    LowFat.setChecked(false);
+                   DietLabel = "balanced";
+                   // Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.HighFiber:
+                if(checked)
+                {
+                    HighProtien.setChecked(false);
+                    Balanced.setChecked(false);
+                    HighFiber.setChecked(true);
+                    LowCarb.setChecked(false);
+                    LowSodium.setChecked(false);
+                    LowFat.setChecked(false);
+                    DietLabel = "high-fiber";
+                  //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.LowCarb:
+                if(checked)
+                {
+                    HighProtien.setChecked(false);
+                    Balanced.setChecked(false);
+                    HighFiber.setChecked(false);
+                    LowCarb.setChecked(true);
+                    LowSodium.setChecked(false);
+                    LowFat.setChecked(false);
+                    DietLabel = "low-carb";
+                  //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.LowSodium:
+                if(checked)
+                {
+                    HighProtien.setChecked(false);
+                    Balanced.setChecked(false);
+                    HighFiber.setChecked(false);
+                    LowCarb.setChecked(false);
+                    LowSodium.setChecked(true);
+                    LowFat.setChecked(false);
+                    DietLabel = "low-sodium";
+                 //   Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.LowFat:
+                if(checked)
+                {
+                    HighProtien.setChecked(false);
+                    Balanced.setChecked(false);
+                    HighFiber.setChecked(false);
+                    LowCarb.setChecked(false);
+                    LowSodium.setChecked(false);
+                    LowFat.setChecked(true);
+                    DietLabel = "low-fat";
+                  //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+
+
+
+
+
+
+        }
     }
 }

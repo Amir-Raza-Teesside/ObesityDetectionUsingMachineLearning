@@ -39,6 +39,33 @@ public class food {
         this.sodium = sodium;
     }
 
+    public food( String foodtitle, String foodcalories, String info1, String info2, String info3, String info4, String info5, String info6, String info7, String info8, String info9, String info10, String info11, String info12, String counsine, String protine, String fat, String carb, String cholestrol, String calcium, String irom, String magnisium, String sodium) {
+
+        this.foodtitle = foodtitle;
+        this.foodcalories = foodcalories;
+        this.info1 = info1;
+        this.info2 = info2;
+        this.info3 = info3;
+        this.info4 = info4;
+        this.info5 = info5;
+        this.info6 = info6;
+        this.info7 = info7;
+        this.info8 = info8;
+        this.info9 = info9;
+        this.info10 = info10;
+        this.info11 = info11;
+        this.info12 = info12;
+        this.counsine = counsine;
+        this.protine = protine;
+        this.fat = fat;
+        this.carb = carb;
+        this.cholestrol = cholestrol;
+        this.calcium = calcium;
+        this.irom = irom;
+        this.magnisium = magnisium;
+        this.sodium = sodium;
+    }
+
     public String getFoodcalories() {
         return foodcalories;
     }
