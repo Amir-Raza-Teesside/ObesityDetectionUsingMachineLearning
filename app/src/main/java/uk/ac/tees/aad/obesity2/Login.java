@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class Login extends AppCompatActivity {
     Button login;
     FirebaseAuth auth;
     Button Register;
+    TextView registertext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,18 +37,22 @@ public class Login extends AppCompatActivity {
         login = findViewById(R.id.button2);
         auth = FirebaseAuth.getInstance();
 
-        Register = findViewById(R.id.button3);
+        registertext = findViewById(R.id.registertext);
+
+        registertext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this,Registration.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         getSupportActionBar().hide();
 
 
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this,stepcounter.class);
-                startActivity(intent);
-            }
-        });
+
 
 
         login.setOnClickListener(new View.OnClickListener() {

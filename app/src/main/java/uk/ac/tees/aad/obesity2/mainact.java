@@ -277,13 +277,13 @@ public class mainact extends AppCompatActivity {
     {
 
 
-        return  user.getWeight() * 0.4535;
+        return  user.getWeight() * 2.20462;
     }
 
     public double CentimeterToInch(user user)
     {
 
-        return  user.getHeight()/2.54;
+        return  user.getHeight()*0.393701;
     }
 
   public void oncheckboxClicked(View view)

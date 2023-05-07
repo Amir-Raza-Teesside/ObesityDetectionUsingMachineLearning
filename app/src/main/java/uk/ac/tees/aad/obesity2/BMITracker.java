@@ -9,16 +9,19 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ekn.gruzer.gaugelibrary.HalfGauge;
 import com.ekn.gruzer.gaugelibrary.Range;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.DecimalFormat;
+
 public class BMITracker extends AppCompatActivity {
 
 
     HalfGauge guage;
-    long bmi;
+    float bmi;
     TextView Yourbmi;
     BottomNavigationView bottomNavigationView;
     @Override
@@ -53,27 +56,59 @@ public class BMITracker extends AppCompatActivity {
         SharedPreferences sh = getSharedPreferences("Prefs",MODE_PRIVATE);
 
 
-        long inch = sh.getLong("inches",0);
-        long pound = sh.getLong("pound",0);
+        float inch = sh.getFloat("height",0);
+        float kgs = sh.getFloat("weight",0);
+
+       float actualInches = (float) (inch *0.393701);
+
+        long result = (long) (actualInches*actualInches*703);
+        //long finalresult = result/pound;
+
+
+        //Float weight
+
+        float poundsss= (float) (kgs*2.20462);
+
+
+       float innereresult = poundsss/(actualInches*actualInches);
+        float finaalresult =  703*innereresult;
+
+        float choped = finaalresult *100/100;
+
+
+
+        //Wheught = 80;
+        //POUNS
+        //cm 160;
+
+        //inches 62
+
+        //2702332
 
 
 
 
-        bmi = (long) BMI(inch,pound);
+
+
+       // bmi = (long) BMI(inch,pound);
+
+        DecimalFormat df = new DecimalFormat("#.##");
+       //
+       Toast.makeText(BMITracker.this, String.valueOf(choped) , Toast.LENGTH_SHORT).show();
         guage.setMaxValue(45);
         guage.setMinValue(10);
-        guage.setValue(bmi);
+        guage.setValue(Double.parseDouble(df.format(finaalresult)));
         Range range = new Range();
         range.setFrom(10);
-        range.setTo(bmi);
+        range.setTo(finaalresult*1.0);
         range.setColor(Color.parseColor("#00ff00"));
-        String ScaleText = YourScale(bmi);
+       String ScaleText = YourScale((long) finaalresult);
         Yourbmi.setText(ScaleText);
 
 
 
         Range range2 = new Range();
-        range2.setFrom(bmi);
+        range2.setFrom(finaalresult*1.0);
         range2.setTo(45);
         range2.setColor(Color.parseColor("#ffffff"));
 
@@ -88,10 +123,15 @@ public class BMITracker extends AppCompatActivity {
 
     }
 
-    private double BMI(long inch, long pound)
+    private float BMI(float inch, float pound)
     {
 
         return  (703 *  (pound)/(inch*inch));
+
+        // 183 65
+
+        // 2379
+
     }
 
     private String YourScale(long bmi)
