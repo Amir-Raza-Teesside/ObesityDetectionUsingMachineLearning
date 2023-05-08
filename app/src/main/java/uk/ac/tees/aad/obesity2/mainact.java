@@ -138,6 +138,13 @@ public class mainact extends AppCompatActivity {
                         Intent intent = new Intent(mainact.this, BMITracker.class);
                         startActivity(intent);
                         break;
+                    case R.id.share:
+                        Toast.makeText(mainact.this, "clicked", Toast.LENGTH_SHORT).show();
+                        Intent intents = new Intent(mainact.this, share_thought.class);
+                        startActivity(intents);
+                        break;
+
+
                 }
             }
         });

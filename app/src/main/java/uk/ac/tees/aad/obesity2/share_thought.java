@@ -2,6 +2,7 @@ package uk.ac.tees.aad.obesity2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,9 @@ public class share_thought extends AppCompatActivity {
         editText = findViewById(R.id.dotweet);
         button = findViewById(R.id.btntweetsubmit);
 
+        SharedPreferences sh = getSharedPreferences("Prefs",MODE_PRIVATE);
+        String Name = sh.getString("name","");
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +53,7 @@ public class share_thought extends AppCompatActivity {
                 }
 
                 Date date = new Date();
-                TweetModel model = new TweetModel("my name",
+                TweetModel model = new TweetModel(Name,
                         auth.getCurrentUser().getEmail(),mytweet,"0");
 
                 DatabaseReference reference = database.getReference("tweet")

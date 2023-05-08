@@ -4,17 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3F51B5"
     tools:context=".share_thought">
 
 
-    <Button
-        android:id="@+id/btntweetsubmit"
+    <TextView
+        android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Share to the Community"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/dotweet"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btntweetsubmit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Post"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dotweet" />
 
     <EditText
         android:id="@+id/dotweet"
@@ -25,7 +45,7 @@
         android:drawableStart="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Share it"
         android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingLeft="4dp"
