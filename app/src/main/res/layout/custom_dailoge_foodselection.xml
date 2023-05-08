@@ -39,6 +39,7 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 android:minHeight="48dp"
+                android:onClick="ondietFilter"
                 android:padding="4dp"
                 android:text="Balanced"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilter"
                 android:padding="4dp"
                 android:text="High Protien" />
 
@@ -58,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilter"
                 android:padding="4dp"
                 android:text="High Fiber" />
         </LinearLayout>
@@ -73,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilter"
                 android:padding="4dp"
                 android:text="Low Fat" />
 
@@ -82,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilter"
                 android:padding="4dp"
                 android:text="Low Carb" />
 
@@ -91,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilter"
                 android:padding="4dp"
                 android:text="Low Soidum" />
         </LinearLayout>
@@ -138,7 +144,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox14"
+                android:id="@+id/vegan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -147,7 +153,7 @@
                 android:text="Vegan" />
 
             <CheckBox
-                android:id="@+id/checkBox13"
+                android:id="@+id/Vagiterian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -155,14 +161,6 @@
                 android:padding="4dp"
                 android:text="Vagiatrien" />
 
-            <CheckBox
-                android:id="@+id/checkBox12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:padding="4dp"
-                android:text="Alcoholfree" />
         </LinearLayout>
 
         <LinearLayout
@@ -171,7 +169,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox11"
+                android:id="@+id/DairyFree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -180,7 +178,7 @@
                 android:text="Dairy Free" />
 
             <CheckBox
-                android:id="@+id/checkBox10"
+                android:id="@+id/WheatFree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -189,7 +187,7 @@
                 android:text="wheat free" />
 
             <CheckBox
-                android:id="@+id/checkBox9"
+                android:id="@+id/SugarConcious"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -204,7 +202,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox8"
+                android:id="@+id/PeanutFree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -212,24 +210,6 @@
                 android:padding="4dp"
                 android:text="Peanut free" />
 
-            <CheckBox
-                android:id="@+id/checkBox7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:padding="4dp"
-                android:text="Soy Free" />
-
-            <CheckBox
-                android:id="@+id/checkBox6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:padding="4dp"
-                android:layout_margin="4dp"
-                android:text="CheckBox" />
         </LinearLayout>
     </LinearLayout>
 

@@ -40,6 +40,8 @@ public class foodrecomender extends AppCompatActivity {
     foodadapter foodadapter;
     Dialog DietFilterDailoge;
     CheckBox HighProtien, Balanced, HighFiber, LowCarb,LowFat,LowSodium;
+
+    CheckBox Vegan, Vagitarin, WheatFree, Dairyfree, PeanutFree, SugarConious;
     static String DietLabel="high-protein";
     public  static String url;
 
@@ -50,7 +52,7 @@ public class foodrecomender extends AppCompatActivity {
 
         url= "https://api.edamam.com/api/recipes/v2?type=any&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb&diet="+DietLabel;
 
-     //   url = "https://api.edamam.com/api/recipes/v2?&&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb";
+
 
         foodArrayList = new ArrayList<>();
         foodadapter = new foodadapter(foodArrayList,foodrecomender.this);
@@ -61,7 +63,7 @@ public class foodrecomender extends AppCompatActivity {
 
 
 
-      //  foodArrayList.add(new food("s","s","Ss","S","S","S","S","S","s","s","s","s","s","S","S","S","S","S","S","s","S","S","S"));
+
         button = findViewById(R.id.btn);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +75,7 @@ public class foodrecomender extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
 
                         Toast.makeText(foodrecomender.this, "done", Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(foodrecomender.this, response.toString(), Toast.LENGTH_SHORT).show();
+
 
                         try {
 
@@ -210,6 +212,13 @@ public class foodrecomender extends AppCompatActivity {
         LowFat = DietFilterDailoge.findViewById(R.id.LowFat);
         LowSodium = DietFilterDailoge.findViewById(R.id.LowSodium);
 
+        WheatFree = DietFilterDailoge.findViewById(R.id.WheatFree);
+        SugarConious = DietFilterDailoge.findViewById(R.id.SugarConcious);
+        Dairyfree = DietFilterDailoge.findViewById(R.id.DairyFree);
+        Vegan = DietFilterDailoge.findViewById(R.id.vegan);
+        Vagitarin = DietFilterDailoge.findViewById(R.id.Vagiterian);
+        PeanutFree = DietFilterDailoge.findViewById(R.id.PeanutFree);
+
     }
 
 
@@ -328,5 +337,121 @@ public class foodrecomender extends AppCompatActivity {
 
 
         }
+
+
+    }
+
+    public void ondietFilterss(View view)
+    {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId())
+        {
+
+            case R.id.vegan:
+                if(checked)
+                {
+                    Vegan.setChecked(true);
+                    Vagitarin.setChecked(false);
+                    Dairyfree.setChecked(false);
+                    PeanutFree.setChecked(false);
+                    WheatFree.setChecked(false);
+                    SugarConious.setChecked(false);
+
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.Vagiterian:
+                if(checked)
+                {
+                    Vegan.setChecked(false);
+                    Vagitarin.setChecked(true);
+                    Dairyfree.setChecked(false);
+                    PeanutFree.setChecked(false);
+                    WheatFree.setChecked(false);
+                    SugarConious.setChecked(false);
+                    // Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.DairyFree:
+                if(checked)
+                {
+                    Vegan.setChecked(false);
+                    Vagitarin.setChecked(false);
+                    Dairyfree.setChecked(true);
+                    PeanutFree.setChecked(false);
+                    WheatFree.setChecked(false);
+                    SugarConious.setChecked(false);
+
+                    //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.PeanutFree:
+                if(checked)
+                {
+                    Vegan.setChecked(false);
+                    Vagitarin.setChecked(false);
+                    Dairyfree.setChecked(false);
+                    PeanutFree.setChecked(true);
+                    WheatFree.setChecked(false);
+                    SugarConious.setChecked(false);
+                    //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.WheatFree:
+                if(checked)
+                {
+                    Vegan.setChecked(false);
+                    Vagitarin.setChecked(false);
+                    Dairyfree.setChecked(false);
+                    PeanutFree.setChecked(false);
+                    WheatFree.setChecked(true);
+                    SugarConious.setChecked(false);
+
+
+                }
+                else {
+
+                }
+                break;
+            case R.id.SugarConcious:
+                if(checked)
+                {
+                    Vegan.setChecked(false);
+                    Vagitarin.setChecked(false);
+                    Dairyfree.setChecked(false);
+                    PeanutFree.setChecked(false);
+                    WheatFree.setChecked(false);
+                    SugarConious.setChecked(true);
+
+
+                }
+                else {
+
+                }
+                break;
+
+
+
+
+
+
+        }
+
+
     }
 }
