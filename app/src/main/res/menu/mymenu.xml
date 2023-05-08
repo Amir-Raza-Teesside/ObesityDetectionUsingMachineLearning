@@ -20,12 +20,29 @@
 
                 android:title="BMR Tracker"
                 app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/foodrecommender"
+
+
+                android:title="Food Recommendation"
+                app:showAsAction="ifRoom" />
+
+
+            <item
+                android:id="@+id/privacypolicy"
+
+
+                android:title="Privacy Policy"
+                app:showAsAction="ifRoom" />
+
             <item
                 android:id="@+id/signout"
 
 
-                android:title="Sign Out"
+                android:title="SignOuT"
                 app:showAsAction="ifRoom" />
+
 
 
 

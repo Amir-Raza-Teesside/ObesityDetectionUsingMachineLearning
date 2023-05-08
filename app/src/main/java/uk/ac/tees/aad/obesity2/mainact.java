@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -238,15 +239,21 @@ public class mainact extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.signout:
-                Intent intent = new Intent(mainact.this,share_thought.class);
-                startActivity(intent);
-               Toast.makeText(mainact.this,"signout",Toast.LENGTH_LONG).show();
+
             case R.id.activitydialog:
-                //dialog.show();
-                //Toast.makeText(mainact.this,"bmr",Toast.LENGTH_LONG).show();
+
                 Intent myintent = new Intent(mainact.this,obesitydetection.class);
                 startActivity(myintent);
+                break;
+            case R.id.foodrecommender:
+
+                Intent foodIntent = new Intent(mainact.this,foodrecomender.class);
+                startActivity(foodIntent);
+                break;
+            case R.id.privacypolicy:
+                Intent myWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+                myWebLink.setData(Uri.parse("https://www.freeprivacypolicy.com/live/bdc579fa-0af9-4fb3-942e-94c1dba69036"));
+                startActivity(myWebLink);
                 break;
         }
         return super.onOptionsItemSelected(item);
