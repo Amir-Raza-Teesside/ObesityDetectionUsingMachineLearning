@@ -1,6 +1,6 @@
 package uk.ac.tees.aad.obesity2;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,12 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
+
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +34,7 @@ public class foodrecomender extends AppCompatActivity {
 
 
     TextView textView;
-    Button button;
+
     RecyclerView recs;
     ArrayList<food> foodArrayList;
     foodadapter foodadapter;
@@ -43,14 +43,16 @@ public class foodrecomender extends AppCompatActivity {
 
     CheckBox Vegan, Vagitarin, WheatFree, Dairyfree, PeanutFree, SugarConious;
     static String DietLabel="high-protein";
+    static String Healthlabel="vegan";
     public  static String url;
+    Button recbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foodrecomender);
-
-        url= "https://api.edamam.com/api/recipes/v2?type=any&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb&diet="+DietLabel;
+        url= "https://api.edamam.com/api/recipes/v2?type=any&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb&diet="+DietLabel+"&health"+Healthlabel;
+      // url="https://api.edamam.com/api/recipes/v2?type=public&app_id=c39a0c06&app_key=7dc4102e52b4d2cc106eb7ee6338eceb&diet=balanced&health=wheat-free";
 
 
 
@@ -61,146 +63,6 @@ public class foodrecomender extends AppCompatActivity {
         recs.setAdapter(foodadapter);
 
 
-
-
-
-        button = findViewById(R.id.btn);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        Toast.makeText(foodrecomender.this, "done", Toast.LENGTH_SHORT).show();
-
-
-                        try {
-
-
-                            Toast.makeText(foodrecomender.this, "trying", Toast.LENGTH_SHORT).show();
-
-                            JSONArray array = response.getJSONArray("hits");
-                           // textView.setText(array.length()+"");
-
-                           // button.setText(response.length() +"///" + array.length());
-                            for(int i =0; i< array.length();i++)
-                            {
-                                JSONObject objects = array.getJSONObject(i);
-                                JSONObject recipedetail = objects.getJSONObject("recipe");
-
-                                JSONArray dietlabel = recipedetail.getJSONArray("dietLabels");
-                                String  imagesource = recipedetail.getString("image");
-                                String foodlabel = recipedetail.getString("label");
-                                String foodcalories = recipedetail.getString("calories");
-                                String info1 = dietlabel.getString(0);
-                                String info2 = dietlabel.getString(1);
-                                JSONArray healthlabel = recipedetail.getJSONArray("healthLabels");
-                                JSONArray cuisineType = recipedetail.getJSONArray("cuisineType");
-
-                               JSONObject totalNutrients = recipedetail.getJSONObject("totalNutrients");
-
-
-
-                               JSONObject kcal = totalNutrients.getJSONObject("FAT");
-                               JSONObject carb = totalNutrients.getJSONObject("CHOCDF");
-                               JSONObject Procnt = totalNutrients.getJSONObject("PROCNT");
-
-                               JSONObject Chloe = totalNutrients.getJSONObject("CHOLE");
-                               JSONObject Na = totalNutrients.getJSONObject("NA");
-                               JSONObject CA = totalNutrients.getJSONObject("CA");
-                               JSONObject MG = totalNutrients.getJSONObject("MG");
-                               JSONObject FE = totalNutrients.getJSONObject("FE");
-
-                               String cholestrol = Chloe.getString("quantity");
-                               String cholestrolformat = cholestrol.substring(0,2)+" mg";
-
-                                String sodium = Na.getString("quantity");
-                                String sodiumFormat = sodium.substring(0,2)+ " mg";
-
-                                String calcium =  CA.getString("quantity");
-                                String calciumformat = calcium.substring(0,2)+ " mg";
-
-                                String magnisium =  MG.getString("quantity");
-                                String magnisumformat = magnisium.substring(0,2)+ " mg";
-
-                                String Iron = FE.getString("quantity");
-                                String IronFormat = Iron.substring(0,2) + " mg";
-
-
-
-
-                                String fat = kcal.getString("quantity");
-                                String fatformat = fat.substring(0,2)+" g";
-                                String carbs = carb.getString("quantity");
-                                String carbsformat = carbs.substring(0,2)+" g";
-                                String Protien = Procnt.getString("quantity");
-                                String protienformat = Protien.substring(0,2)+" g";
-
-                               // button.setText(kcal.getString("label"));
-
-
-
-
-                                String info3 = healthlabel.getString(0);
-                                String info4 = healthlabel.getString(1);
-                                String info5 = healthlabel.getString(2);
-                                String info6 = healthlabel.getString(3);
-                                String info7 = healthlabel.getString(4);
-                                String info8 = healthlabel.getString(5);
-                                String info9 = healthlabel.getString(6);
-                                String info10 = healthlabel.getString(7);
-                                String info11 = healthlabel.getString(8);
-                                String info12 = healthlabel.getString(9);
-                                String cousine = cuisineType.getString(0);
-
-
-
-                                foodArrayList.add(new food(imagesource,foodlabel,foodcalories.substring(0,4),info1,info2,info3,info4,info5,info6,info7,info8,info9,info10,info11,info12,cousine,protienformat,fatformat,carbsformat,cholestrolformat,calciumformat,IronFormat,magnisumformat,sodiumFormat));
-
-                                foodadapter.notifyDataSetChanged();
-
-                            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(foodrecomender.this,e.getMessage(),Toast.LENGTH_LONG).show();
-                        }
-
-
-
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Toast.makeText(foodrecomender.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-                Singleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
-
-            }
-        });
 
         DietFilterDailoge = new Dialog(this);
         DietFilterDailoge.setContentView(R.layout.custom_dailoge_foodselection);
@@ -219,6 +81,16 @@ public class foodrecomender extends AppCompatActivity {
         Vagitarin = DietFilterDailoge.findViewById(R.id.Vagiterian);
         PeanutFree = DietFilterDailoge.findViewById(R.id.PeanutFree);
 
+
+        recbtn = DietFilterDailoge.findViewById(R.id.recipeSearchbtn);
+
+        recbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getData();
+                DietFilterDailoge.dismiss();
+            }
+        });
     }
 
 
@@ -258,9 +130,7 @@ public class foodrecomender extends AppCompatActivity {
                    // Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
 
                 }
-                else {
 
-                }
                 break;
             case R.id.HighFiber:
                 if(checked)
@@ -309,9 +179,7 @@ public class foodrecomender extends AppCompatActivity {
                  //   Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
 
                 }
-                else {
 
-                }
                 break;
             case R.id.LowFat:
                 if(checked)
@@ -356,6 +224,7 @@ public class foodrecomender extends AppCompatActivity {
                     PeanutFree.setChecked(false);
                     WheatFree.setChecked(false);
                     SugarConious.setChecked(false);
+                    Healthlabel= "vegan";
 
 
                 }
@@ -372,7 +241,7 @@ public class foodrecomender extends AppCompatActivity {
                     PeanutFree.setChecked(false);
                     WheatFree.setChecked(false);
                     SugarConious.setChecked(false);
-                    // Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+                     Healthlabel="vegetarian";
 
                 }
                 else {
@@ -388,6 +257,7 @@ public class foodrecomender extends AppCompatActivity {
                     PeanutFree.setChecked(false);
                     WheatFree.setChecked(false);
                     SugarConious.setChecked(false);
+                    Healthlabel= "dairy-free";
 
                     //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
 
@@ -405,7 +275,8 @@ public class foodrecomender extends AppCompatActivity {
                     PeanutFree.setChecked(true);
                     WheatFree.setChecked(false);
                     SugarConious.setChecked(false);
-                    //  Toast.makeText(foodrecomender.this, DietLabel, Toast.LENGTH_SHORT).show();
+                    Healthlabel= "peanut-free";
+
 
                 }
                 else {
@@ -421,12 +292,11 @@ public class foodrecomender extends AppCompatActivity {
                     PeanutFree.setChecked(false);
                     WheatFree.setChecked(true);
                     SugarConious.setChecked(false);
+                    Healthlabel= "wheat-free";
 
 
                 }
-                else {
 
-                }
                 break;
             case R.id.SugarConcious:
                 if(checked)
@@ -438,11 +308,11 @@ public class foodrecomender extends AppCompatActivity {
                     WheatFree.setChecked(false);
                     SugarConious.setChecked(true);
 
+                    Healthlabel= "sugar-conscious";
+
 
                 }
-                else {
 
-                }
                 break;
 
 
@@ -454,4 +324,121 @@ public class foodrecomender extends AppCompatActivity {
 
 
     }
+
+    public void getData(){
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                Toast.makeText(foodrecomender.this, "done", Toast.LENGTH_SHORT).show();
+
+
+                try {
+
+
+                    Toast.makeText(foodrecomender.this, "trying", Toast.LENGTH_SHORT).show();
+
+                    JSONArray array = response.getJSONArray("hits");
+                    // textView.setText(array.length()+"");
+
+                    // button.setText(response.length() +"///" + array.length());
+                    for(int i =0; i< array.length();i++)
+                    {
+                        JSONObject objects = array.getJSONObject(i);
+                        JSONObject recipedetail = objects.getJSONObject("recipe");
+
+                        JSONArray dietlabel = recipedetail.getJSONArray("dietLabels");
+                        String  imagesource = recipedetail.getString("image");
+                        String foodlabel = recipedetail.getString("label");
+                        String foodcalories = recipedetail.getString("calories");
+                        String info1 = dietlabel.getString(0);
+                        String info2 = dietlabel.getString(1);
+                        JSONArray healthlabel = recipedetail.getJSONArray("healthLabels");
+                        JSONArray cuisineType = recipedetail.getJSONArray("cuisineType");
+
+                        JSONObject totalNutrients = recipedetail.getJSONObject("totalNutrients");
+
+
+
+                        JSONObject kcal = totalNutrients.getJSONObject("FAT");
+                        JSONObject carb = totalNutrients.getJSONObject("CHOCDF");
+                        JSONObject Procnt = totalNutrients.getJSONObject("PROCNT");
+
+                        JSONObject Chloe = totalNutrients.getJSONObject("CHOLE");
+                        JSONObject Na = totalNutrients.getJSONObject("NA");
+                        JSONObject CA = totalNutrients.getJSONObject("CA");
+                        JSONObject MG = totalNutrients.getJSONObject("MG");
+                        JSONObject FE = totalNutrients.getJSONObject("FE");
+
+                        String cholestrol = Chloe.getString("quantity");
+                        String cholestrolformat = cholestrol.substring(0,2)+" mg";
+
+                        String sodium = Na.getString("quantity");
+                        String sodiumFormat = sodium.substring(0,2)+ " mg";
+
+                        String calcium =  CA.getString("quantity");
+                        String calciumformat = calcium.substring(0,2)+ " mg";
+
+                        String magnisium =  MG.getString("quantity");
+                        String magnisumformat = magnisium.substring(0,2)+ " mg";
+
+                        String Iron = FE.getString("quantity");
+                        String IronFormat = Iron.substring(0,2) + " mg";
+
+
+
+
+                        String fat = kcal.getString("quantity");
+                        String fatformat = fat.substring(0,2)+" g";
+                        String carbs = carb.getString("quantity");
+                        String carbsformat = carbs.substring(0,2)+" g";
+                        String Protien = Procnt.getString("quantity");
+                        String protienformat = Protien.substring(0,2)+" g";
+
+
+
+                        String info3 = healthlabel.getString(0);
+                        String info4 = healthlabel.getString(1);
+                        String info5 = healthlabel.getString(2);
+                        String info6 = healthlabel.getString(3);
+                        String info7 = healthlabel.getString(4);
+                        String info8 = healthlabel.getString(5);
+                        String info9 = healthlabel.getString(6);
+                        String info10 = healthlabel.getString(7);
+                        String info11 = healthlabel.getString(8);
+                        String info12 = healthlabel.getString(9);
+                        String cousine = cuisineType.getString(0);
+
+
+
+                        foodArrayList.add(new food(imagesource,foodlabel,foodcalories.substring(0,4),info1,info2,info3,info4,info5,info6,info7,info8,info9,info10,info11,info12,cousine,protienformat,fatformat,carbsformat,cholestrolformat,calciumformat,IronFormat,magnisumformat,sodiumFormat));
+
+                        foodadapter.notifyDataSetChanged();
+
+                    }
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(foodrecomender.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                }
+
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(foodrecomender.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Singleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+
+    }
 }
+

@@ -149,6 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilterss"
                 android:padding="4dp"
                 android:text="Vegan" />
 
@@ -158,6 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilterss"
                 android:padding="4dp"
                 android:text="Vagiatrien" />
 
@@ -174,6 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilterss"
                 android:padding="4dp"
                 android:text="Dairy Free" />
 
@@ -183,6 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilterss"
                 android:padding="4dp"
                 android:text="wheat free" />
 
@@ -192,6 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilterss"
                 android:padding="4dp"
                 android:text="Sugar Concious" />
         </LinearLayout>
@@ -207,6 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:onClick="ondietFilterss"
                 android:padding="4dp"
                 android:text="Peanut free" />
 
